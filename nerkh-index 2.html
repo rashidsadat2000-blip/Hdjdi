@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>لیست نرخ اجناس</title>
+<meta name="theme-color" content="#0f5c4d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230f5c4d'/%3E%3Cpath d='M18 68 L13 34 L35 48 L50 22 L65 48 L87 34 L82 68 Z' fill='%23fbbf24'/%3E%3Crect x='18' y='72' width='64' height='8' rx='2' fill='%23fbbf24'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230f5c4d'/%3E%3Cpath d='M18 68 L13 34 L35 48 L50 22 L65 48 L87 34 L82 68 Z' fill='%23fbbf24'/%3E%3Crect x='18' y='72' width='64' height='8' rx='2' fill='%23fbbf24'/%3E%3C/svg%3E">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="سلطان">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap">
+<style>
+:root{--bg:#eef1f4;--paper:#fff;--ink:#16202b;--mute:#5d6b7a;--line:#c9d1da;--accent:#0f5c4d;--accent-ink:#fff;--head:#e6efec;--danger:#b3261e;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--paper:#18212a;--ink:#e8edf2;--mute:#93a1b0;--line:#33414f;--accent:#4fb89f;--accent-ink:#06211b;--head:#203029;--danger:#ff8a80}}
+:root[data-theme="dark"]{--bg:#10161c;--paper:#18212a;--ink:#e8edf2;--mute:#93a1b0;--line:#33414f;--accent:#4fb89f;--accent-ink:#06211b;--head:#203029;--danger:#ff8a80}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,"Segoe UI",sans-serif;font-size:15px;line-height:1.7;font-weight:600}
+.wrap{max-width:900px;margin:0 auto;padding:14px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+button,select,input[type=date]{font:inherit;border-radius:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:7px 14px;cursor:pointer}
+button.main{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.paper{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:20px}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:14px}
+.meta label{display:block;font-size:13px;color:var(--mute)}
+.meta input{width:100%;font:inherit;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--ink);padding:4px 2px}
+h1{margin:0 0 14px;font-size:24px;font-weight:800;text-align:center;color:var(--accent);border-top:3px double var(--accent);border-bottom:3px double var(--accent);padding:6px 0}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:640px}
+th,td{border:1px solid var(--line);padding:0;text-align:center}
+th{background:var(--head);font-weight:800;padding:8px 4px;font-size:15px;border-bottom:3px solid var(--accent)}
+td input{width:100%;border:0;background:transparent;color:var(--ink);font:inherit;font-weight:700;text-align:center;padding:8px 4px}
+td.name input{text-align:right;padding-right:8px}
+td.n{width:38px;color:var(--mute)}
+td.sum{font-weight:600;padding:8px 6px;white-space:nowrap}
+td.x{width:36px}
+td.x button{border:0;background:transparent;color:var(--danger);padding:4px 8px;font-size:18px}
+tfoot td{background:var(--head);font-weight:800;font-size:16px;padding:9px 6px;border-top:3px double var(--accent)}
+.hint{color:var(--mute);font-size:13px;margin:10px 0 0}
+.calc{display:flex;gap:8px;align-items:center;font-size:14px}
+.hide{display:none!important}
+.brand{text-align:center;margin:2px 0 12px;color:var(--accent);border:3px double var(--accent);border-radius:16px;padding:10px 8px;background:var(--paper)}
+.brand svg{width:70px;height:auto;display:block;margin:0 auto 2px}
+.brand b{display:block;font-size:34px;font-weight:800;line-height:1.3}
+.brand p{margin:0;font-size:14px;line-height:1.7;color:var(--ink)}
+.brand .shop{font-weight:600;font-size:17px}
+button.tab.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+th input{width:100%;border:0;background:transparent;color:var(--ink);font:inherit;font-weight:600;text-align:center;padding:4px}
+@media print{
+ @page{size:80mm auto;margin:0}
+ :root{--bg:#fff;--paper:#fff;--ink:#000;--mute:#000;--line:#000;--head:#fff}
+ html,body{width:80mm;background:#fff;font-size:9pt;line-height:1.35}
+ .bar,.x,.hint,.noprint{display:none!important}
+ .wrap{max-width:none;width:72mm;margin:0 auto;padding:2mm 0 12mm}
+ .paper{border:0;padding:0}
+ .tw{overflow:visible}
+ table{min-width:0!important;width:100%}
+ tr{break-inside:avoid}
+ thead{display:table-header-group}
+ tfoot{display:table-footer-group}
+ .meta input{border-bottom:1px solid #000;font-size:8pt}
+ .meta{grid-template-columns:1fr;gap:2px;margin-bottom:6px}
+ .meta label{font-size:7pt}
+ h1{font-size:14pt;margin:0 0 6px;border-top:2px solid #000;border-bottom:2px solid #000;padding:2px 0}
+ th,td{font-size:8pt}
+ td input,th input{font-size:8pt!important;padding:1px 0!important}
+ td.n{width:5mm!important}
+ .brand{color:#000;margin:0 0 6px;padding:3px 2px 4px;border:3px double #000;border-radius:8px;background:#fff}
+ .brand svg{width:15mm}
+ .brand b{font-size:19pt}
+ .brand p{font-size:8pt;color:#000}
+ .brand .shop{font-size:10pt}
+ * {color:#000!important;font-weight:700!important;-webkit-text-stroke:.3px #000;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ h1,.brand b,th,th input,tfoot td{font-weight:800!important;-webkit-text-stroke:.45px #000}
+ th,td{border:1.5px solid #000!important;font-size:9.5pt}
+ td input,th input{font-size:9.5pt!important}
+ .meta input{font-size:9.5pt;border-bottom:1.5px solid #000}
+ .meta label{font-size:8pt}
+ .brand p{font-size:9pt}
+ .brand .shop{font-size:11pt}
+ input::placeholder{color:transparent!important}
+ th{border-bottom:3px solid #000!important}
+ tfoot td{border-top:3px double #000!important;font-size:10.5pt}
+}
+td select{width:100%;border:0;background:transparent;color:var(--ink);font:inherit;font-weight:700;text-align:center;padding:8px 2px;border-radius:0}
+@media print{td select{-webkit-appearance:none;appearance:none;padding:1px 0}}
+html,body{max-width:100%;overflow-x:hidden;overscroll-behavior-x:none;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+.wrap{overflow-x:hidden}
+.tw{overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y}
+@media screen and (max-width:700px){input,select,textarea,td input,th input,td select{font-size:16px!important}}
+#setm{position:fixed;inset:0;background:#0007;display:flex;align-items:center;justify-content:center;z-index:50;padding:14px}
+#setm .box{background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:18px;max-width:420px;width:100%;max-height:90vh;overflow:auto}
+#setm h2{margin:0 0 10px;font-size:18px;color:var(--accent)}
+#setm .r{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+#setm .r input[type=checkbox]{width:20px;height:20px}
+#setm .r input[type=text]{font:inherit;width:120px;border:1px solid var(--line);border-radius:6px;padding:4px 6px;background:var(--paper);color:var(--ink)}
+@media print{#setm{display:none!important}.sig{display:flex!important}}
+.sig{display:none;justify-content:space-between;margin-top:18px;font-size:12px}
+.sig span{border-top:1px solid #000;padding-top:3px;width:42%;text-align:center}
+</style>
+<style id="pst"></style>
+</head>
+<body>
+<div class="wrap">
+ <div class="bar">
+  <button class="tab on" id="t1">نرخنامه</button><button class="tab" id="t2">حساب</button>
+  <button class="main" id="print">چاپ</button>
+  <button id="add">+ ردیف جدید</button>
+  <button id="clear">پاک کردن همه</button><button id="wa">ارسال واتساپ</button><button id="setb" aria-label="تنظیمات">⚙️ تنظیمات</button>
+  <input type="date" id="day" aria-label="انتخاب روز"><button id="today">امروز</button><button id="bk" class="hide">پشتیبان</button><button id="rs">بازیابی</button><input type="file" id="rf" accept=".json,application/json" class="hide"><select id="days" aria-label="روزهای ذخیره‌شده"></select>
+  <span class="calc hide" id="calcbox"><label for="mode">قیمت ضرب در:</label>
+   <select id="mode">
+    <option value="qty">تعداد</option>
+    <option value="wt">وزن</option>
+    <option value="both">وزن × تعداد</option>
+   </select></span>
+ </div>
+ <div class="brand" id="brand"><svg viewBox="0 0 100 64" aria-hidden="true" fill="currentColor"><path d="M8 50 L4 18 L28 34 L50 6 L72 34 L96 18 L92 50 Z"/><rect x="8" y="54" width="84" height="8" rx="2"/><circle cx="4" cy="15" r="5"/><circle cx="50" cy="5" r="5.5"/><circle cx="96" cy="15" r="5"/><circle cx="50" cy="34" r="4" fill="var(--paper)"/></svg><b>سلطان</b><p class="shop">فروشگاه سید راشد</p><p>موبایل: <span dir="ltr">0748494107</span></p><p>آدرس: باغ قاضی، سرای چقرک، دکان نمبر 104</p></div>
+ <div class="paper" id="rate">
+  <h1>نرخنامه اجناس</h1>
+  <div class="meta">
+   <div><label for="rwho">نام فروشگاه</label><input id="rwho"></div>
+   <div><label for="rdt">تاریخ</label><input id="rdt" readonly></div>
+   <div><label for="runit">واحد پول</label><input id="runit"></div>
+  </div>
+  <div class="tw"><table style="min-width:520px"><thead><tr id="rhead"></tr><tr id="rfac" class="noprint"></tr></thead><tbody id="rrows"></tbody></table></div>
+  <div class="sig"><span>امضای فروشنده</span><span>امضای خریدار</span></div>
+  <p class="hint">فقط قیمت کیلو را بنویسید؛ نیم سیر، یک سیر و بوجی خودکار ضرب می‌شوند. ضریب هر ستون (نیم سیر ۳٫۵، یک سیر ۷، بوجی ۵۰ کیلو) در ردیف بالای جدول قابل تغییر است. عنوان ستون‌ها را هم می‌شود تغییر داد.</p>
+ </div>
+ <div class="paper hide" id="inv">
+  <h1 id="ttl">حساب مشتری</h1>
+  <div class="meta">
+   <div><label for="who">نام مشتری / فروشگاه</label><input id="who"></div>
+   <div><label for="dt">تاریخ</label><input id="dt" readonly></div>
+   <div><label for="unit">واحد پول</label><input id="unit" value="افغانی"></div>
+  </div>
+  <datalist id="items"></datalist><div class="tw">
+  <table style="min-width:700px">
+   <thead><tr><th>ردیف</th><th>نام جنس</th><th>واحد</th><th>وزن</th><th>تعداد</th><th>قیمت واحد</th><th>مبلغ</th><th class="x"></th></tr></thead>
+   <tbody id="rows"></tbody>
+   <tfoot><tr><td colspan="3">جمع کل</td><td id="tw">۰</td><td id="tq">۰</td><td></td><td id="tt">۰</td><td class="x"></td></tr>
+   <tr><td colspan="6">تخفیف</td><td><input id="disc" inputmode="decimal" aria-label="تخفیف" style="width:100%;border:0;background:transparent;color:inherit;font:inherit;font-weight:700;text-align:center;padding:6px 2px"></td><td class="x"></td></tr>
+   <tr><td colspan="6">قابل پرداخت</td><td id="tnet">۰</td><td class="x"></td></tr>
+   <tr><td colspan="6">دریافتی</td><td><input id="paid" inputmode="decimal" aria-label="دریافتی" style="width:100%;border:0;background:transparent;color:inherit;font:inherit;font-weight:700;text-align:center;padding:6px 2px"></td><td class="x"></td></tr>
+   <tr><td colspan="6">باقی‌مانده</td><td id="trest">۰</td><td class="x"></td></tr></tfoot>
+  </table>
+  </div>
+  <div class="sig"><span>امضای فروشنده</span><span>امضای خریدار</span></div>
+  <p class="hint">اعداد فارسی یا انگلیسی هر دو قبول است. با دکمه «چاپ» خروجی A4 بدون دکمه‌ها چاپ می‌شود. اطلاعات در همین مرورگر ذخیره می‌ماند.</p>
+ </div>
+</div>
+<script>
+(function(){
+var K2='nerkh-rate-v1',R={heads:['کیلو','نیم سیر','یک سیر','بوجی'],f:[1,3.5,7,50],rows:[],who:'',dt:'',unit:'افغانی'},tab='rate',K3='nerkh-days-v1',DAYS={},cur='',D={},KEY='nerkh-ajnas-v1',rows=[],S={who:'',dt:'',unit:'افغانی',mode:'qty',disc:'',paid:''};
+var $=function(i){return document.getElementById(i)};
+var fa=new Intl.NumberFormat('fa-IR',{maximumFractionDigits:3});
+function num(v){
+ if(v==null)return 0;
+ v=String(v).replace(/[۰-۹]/g,function(d){return '۰۱۲۳۴۵۶۷۸۹'.indexOf(d)})
+  .replace(/[٠-٩]/g,function(d){return '٠١٢٣٤٥٦٧٨٩'.indexOf(d)})
+  .replace(/[,،٬\s]/g,'').replace(/[٫]/g,'.');
+ var n=parseFloat(v);return isFinite(n)?n:0;
+}
+function save(){D.inv={rows:rows,S:S};D.rate=R;DAYS[cur]=D;persist()}
+function load(){try{var d=JSON.parse(localStorage.getItem(KEY)||'null');if(d){rows=d.rows||[];S=Object.assign(S,d.S||{})}}catch(e){}}
+function saveR(){fillList();D.rate=R;D.inv={rows:rows,S:S};DAYS[cur]=D;persist()}
+function loadR(){try{var d=JSON.parse(localStorage.getItem(K2)||'null');if(d)R=Object.assign(R,d)}catch(e){}if(!R.f)R.f=[1,3.5,7,50];if(!R.rows.length)for(var i=0;i<8;i++)R.rows.push({n:'',c:['','','','']})}
+function drawR(){
+ var h=$('rhead');h.innerHTML='<th>ردیف</th><th>نام جنس</th>';
+ R.heads.forEach(function(t,j){var th=document.createElement('th'),inp=document.createElement('input');inp.value=t;inp.setAttribute('data-h',j);inp.setAttribute('aria-label','عنوان ستون');th.appendChild(inp);h.appendChild(th)});
+ var x=document.createElement('th');x.className='x';h.appendChild(x);
+ var fr=$('rfac');
+ fr.innerHTML='<th colspan="2" style="font-size:12px">ضریب: هر ستون چند کیلو است؟</th>';
+ R.heads.forEach(function(_,j){var th=document.createElement('th'),inp=document.createElement('input');inp.setAttribute('data-f',j);inp.setAttribute('inputmode','decimal');inp.setAttribute('aria-label','ضریب ستون');inp.value=fa.format(R.f[j]!=null?R.f[j]:1);if(j===0)inp.readOnly=true;th.appendChild(inp);fr.appendChild(th)});
+ fr.appendChild(document.createElement('th'));
+ var b=$('rrows');b.innerHTML='';
+ R.rows.forEach(function(r,i){
+  var tr=document.createElement('tr');
+  var s='<td class="n">'+fa.format(i+1)+'</td><td class="name"><input data-rk="n" data-ri="'+i+'" aria-label="نام جنس"></td>';
+  R.heads.forEach(function(_,j){s+='<td><input data-rk="'+j+'" data-ri="'+i+'" inputmode="decimal" aria-label="قیمت"></td>'});
+  s+='<td class="x"><button data-rdel="'+i+'" aria-label="حذف ردیف">×</button></td>';
+  tr.innerHTML=s;b.appendChild(tr);
+  tr.querySelector('[data-rk="n"]').value=r.n;
+  R.heads.forEach(function(_,j){tr.querySelector('[data-rk="'+j+'"]').value=r.c[j]||''});
+ });
+}
+function autoFill(i){
+ var r=R.rows[i],v=num(r.c[0]),tr=document.querySelectorAll('#rrows tr')[i];
+ for(var j=1;j<R.heads.length;j++){
+  var val=v>0?fa.format(Math.round(v*(num(R.f[j])||0)*1000)/1000):'';
+  r.c[j]=val;
+  if(tr){var el=tr.querySelector('[data-rk="'+j+'"]');if(el)el.value=val}
+ }
+}
+function addR(){R.rows.push({n:'',c:['','','','']});drawR();saveR();var l=document.querySelectorAll('[data-rk="n"]');l[l.length-1].focus()}
+function clearR(){if(confirm('همه ردیف‌های نرخنامه پاک شود؟')){R.rows=[];for(var i=0;i<8;i++)R.rows.push({n:'',c:['','','','']});drawR();saveR()}}
+function setTab(t){tab=t;$('rate').classList.toggle('hide',t!=='rate');$('inv').classList.toggle('hide',t!=='inv');$('calcbox').classList.toggle('hide',t!=='inv');$('t1').classList.toggle('on',t==='rate');$('t2').classList.toggle('on',t==='inv')}
+function initR(){
+ $('rwho').value=R.who;$('rdt').value=R.dt;$('runit').value=R.unit;
+ [['rwho','who'],['rdt','dt'],['runit','unit']].forEach(function(p){$(p[0]).addEventListener('input',function(){R[p[1]]=$(p[0]).value;saveR()})});
+ $('rhead').addEventListener('input',function(e){var j=e.target.getAttribute('data-h');if(j==null)return;R.heads[j]=e.target.value;saveR()});
+ $('rrows').addEventListener('input',function(e){var t=e.target,i=t.getAttribute('data-ri');if(i==null)return;var k=t.getAttribute('data-rk');if(k==='n')R.rows[i].n=t.value;else{R.rows[i].c[k]=t.value;if(k==='0')autoFill(+i)}saveR()});
+ $('rrows').addEventListener('change',function(e){var t=e.target,i=t.getAttribute('data-ri'),k=t.getAttribute('data-rk');if(i==null||k==='n')return;var v=num(t.value);if(v>0){t.value=fa.format(v);R.rows[i].c[k]=t.value;if(k==='0')autoFill(+i);saveR()}});
+ $('rfac').addEventListener('change',function(e){var j=e.target.getAttribute('data-f');if(j==null)return;var v=num(e.target.value);if(!(v>0)){e.target.value=fa.format(R.f[j]||1);return}R.f[j]=v;e.target.value=fa.format(v);R.rows.forEach(function(_,i){if(num(R.rows[i].c[0])>0)autoFill(i)});saveR()});
+ $('rrows').addEventListener('click',function(e){var d=e.target.getAttribute('data-rdel');if(d==null)return;R.rows.splice(+d,1);if(!R.rows.length)R.rows.push({n:'',c:['','','','']});drawR();saveR()});
+ $('rrows').addEventListener('keydown',function(e){if(e.key!=='Enter')return;var i=e.target.getAttribute('data-ri');if(i==null)return;i=+i;if(i===R.rows.length-1){e.target.blur();addR();return}var nx=document.querySelector('[data-ri="'+(i+1)+'"][data-rk="'+e.target.getAttribute('data-rk')+'"]');if(nx)nx.focus()});
+ $('t1').onclick=function(){setTab('rate')};$('t2').onclick=function(){setTab('inv')};
+ drawR();setTab('rate');initDays();
+}
+function p2(n){return n<10?'0'+n:''+n}
+function todayKey(){var d=new Date();return d.getFullYear()+'-'+p2(d.getMonth()+1)+'-'+p2(d.getDate())}
+function dateLabel(k){var d=new Date(k+'T12:00:00'),o={weekday:'long',year:'numeric',month:'long',day:'numeric'};try{return d.toLocaleDateString('fa-AF-u-ca-persian',o)}catch(e){return d.toLocaleDateString('fa-IR-u-ca-persian',o)}}
+function persist(){try{localStorage.setItem(K3,JSON.stringify(DAYS))}catch(e){}refreshDays()}
+function loadAll(){
+ try{DAYS=JSON.parse(localStorage.getItem(K3)||'{}')||{}}catch(e){DAYS={}}
+ var t=todayKey();
+ if(!Object.keys(DAYS).length){try{var a=JSON.parse(localStorage.getItem(K2)||'null'),b=JSON.parse(localStorage.getItem(KEY)||'null');if(a||b)DAYS[t]={rate:a,inv:b}}catch(e){}}
+ setData(t);
+}
+function setData(key){
+ cur=key;D=DAYS[key];var prev=null;
+ if(!D){var ks=Object.keys(DAYS).filter(function(k){return k<key}).sort();prev=ks.length?DAYS[ks[ks.length-1]]:null;D={}}
+ var def={heads:['کیلو','نیم سیر','یک سیر','بوجی'],f:[1,3.5,7,50],rows:[],who:'',dt:'',unit:'افغانی'};
+ R=D.rate||(prev&&prev.rate?JSON.parse(JSON.stringify(prev.rate)):def);
+ R.heads=R.heads||def.heads;R.f=R.f||def.f.slice();
+ if(!R.rows||!R.rows.length){R.rows=[];for(var i=0;i<8;i++)R.rows.push({n:'',c:['','','','']})}
+ var hasInv=D.inv&&D.inv.rows&&D.inv.rows.length;
+ var ps=prev&&prev.inv&&prev.inv.S?prev.inv.S:{};
+ rows=hasInv?D.inv.rows:[blank(),blank(),blank(),blank(),blank()];
+ S=Object.assign({who:'',dt:'',unit:'افغانی',mode:'qty',disc:'',paid:''},hasInv?D.inv.S:{unit:ps.unit,mode:ps.mode});
+ if(S.disc==null)S.disc='';if(S.paid==null)S.paid='';if(S.unit==null||S.unit==='افغانی')S.unit='افغانی';if(S.mode==null)S.mode='qty';
+ R.dt=S.dt=dateLabel(key);
+}
+function goDay(k){
+ if(!k)return;setData(k);
+ $('who').value=S.who;$('dt').value=S.dt;$('unit').value=S.unit;$('mode').value=S.mode;$('disc').value=S.disc;$('paid').value=S.paid;
+ $('rwho').value=R.who;$('rdt').value=R.dt;$('runit').value=R.unit;
+ draw();drawR();refreshDays();
+}
+function refreshDays(){
+ var s=$('days');if(!s)return;
+ var ks=Object.keys(DAYS);if(ks.indexOf(cur)<0)ks.push(cur);
+ ks.sort().reverse();s.innerHTML='';
+ var o0=document.createElement('option');o0.value='';o0.textContent='روزهای ذخیره‌شده ('+fa.format(Object.keys(DAYS).length)+')';s.appendChild(o0);
+ ks.forEach(function(k){var o=document.createElement('option');o.value=k;o.textContent=dateLabel(k);s.appendChild(o)});
+ s.value='';$('day').value=cur;
+}
+function initDays(){
+ $('day').onchange=function(){if($('day').value)goDay($('day').value)};
+ $('today').onclick=function(){goDay(todayKey())};
+ var dl=null;
+ try{if(window.claude&&window.claude.use)window.claude.use('downloads').then(function(d){dl=d;$('bk').classList.toggle('hide',!d)}).catch(function(){})}catch(e){}
+ $('bk').onclick=function(){
+  if(!dl)return;
+  dl.save({filename:'nerkh-backup-'+todayKey()+'.json',data:JSON.stringify({v:1,days:DAYS})}).catch(function(e){if(!e||e.code!=='declined')alert('ذخیره نشد. دوباره امتحان کنید.')});
+ };
+ $('rs').onclick=function(){$('rf').click()};
+ $('rf').onchange=function(){
+  var f=$('rf').files[0];if(!f)return;
+  var r=new FileReader();
+  r.onload=function(){
+   try{
+    var d=JSON.parse(r.result);if(!d||!d.days)throw 0;
+    if(!confirm('روزهای داخل فایل به اطلاعات فعلی اضافه شود؟ روزهای هم‌تاریخ با فایل جایگزین می‌شوند.'))return;
+    Object.keys(d.days).forEach(function(k){DAYS[k]=d.days[k]});
+    persist();goDay(cur);
+   }catch(e){alert('این فایل پشتیبان نرخنامه نیست.')}
+   $('rf').value='';
+  };
+  r.readAsText(f);
+ };
+ $('days').onchange=function(){goDay($('days').value)};
+ window.addEventListener('beforeprint',function(){document.querySelectorAll('#rrows tr,#rows tr').forEach(function(tr){var v=[].some.call(tr.querySelectorAll('input'),function(i){return i.value.trim()});tr.classList.toggle('hide',!v)})});
+ window.addEventListener('afterprint',function(){document.querySelectorAll('#rrows tr.hide,#rows tr.hide').forEach(function(tr){tr.classList.remove('hide')})});
+ refreshDays();
+}
+function normN(x){return String(x||'').replace(/ي/g,'ی').replace(/ك/g,'ک').replace(/\s+/g,' ').trim()}
+function findRate(n){n=normN(n);if(!n)return null;for(var i=0;i<R.rows.length;i++){if(normN(R.rows[i].n)===n)return R.rows[i]}return null}
+function fillList(){var d=$('items');if(!d)return;d.innerHTML='';R.rows.forEach(function(r){if(normN(r.n)){var o=document.createElement('option');o.value=r.n;d.appendChild(o)}})}
+function autoPrice(i,k){
+ var r=rows[i],rt=findRate(r.n);if(!rt)return;
+ if(r.u===''||r.u==null){r.u='0'}
+ var j=+r.u,price=rt.c[j];if(!price)return;
+ r.p=price;r.w=fa.format(num(R.f[j])||1);
+ var tr=document.querySelectorAll('#rows tr')[i];
+ if(tr){tr.querySelector('[data-k="u"]').value=r.u;tr.querySelector('[data-k="p"]').value=r.p;tr.querySelector('[data-k="w"]').value=r.w}
+ if(S.mode!=='qty'){S.mode='qty';$('mode').value='qty'}
+}
+function blank(){return {n:'',w:'',q:'',p:'',u:''}}
+function amt(r){
+ var w=num(r.w),q=num(r.q),p=num(r.p),m=S.mode;
+ if(m==='wt')return p*w;
+ if(m==='both')return p*w*q;
+ return p*q;
+}
+function totals(){
+ var tw=0,tq=0,tt=0;
+ rows.forEach(function(r,i){
+  tw+=num(r.w)*(num(r.q)||1);tq+=num(r.q);var a=amt(r);tt+=a;
+  var c=$('s'+i);if(c)c.textContent=a?fa.format(a):'';
+ });
+ $('tw').textContent=fa.format(tw);$('tq').textContent=fa.format(tq);
+ $('tt').textContent=fa.format(tt)+' '+(S.unit||'');
+ var net=tt-num(S.disc),rest=net-num(S.paid),u=' '+(S.unit||'');
+ $('tnet').textContent=fa.format(net)+u;$('trest').textContent=fa.format(rest)+u;
+}
+function draw(){
+ var b=$('rows');b.innerHTML='';
+ rows.forEach(function(r,i){
+  var tr=document.createElement('tr');
+  tr.innerHTML='<td class="n">'+fa.format(i+1)+'</td>'
+  +'<td class="name"><input data-k="n" data-i="'+i+'" list="items" aria-label="نام جنس"></td>'
+  +'<td><select data-k="u" data-i="'+i+'" aria-label="واحد"><option value="">-</option>'+R.heads.map(function(h,j){return '<option value="'+j+'">'+h.replace(/</g,'&lt;')+'</option>'}).join('')+'</select></td>'
+  +'<td><input data-k="w" data-i="'+i+'" inputmode="decimal" aria-label="وزن"></td>'
+  +'<td><input data-k="q" data-i="'+i+'" inputmode="decimal" aria-label="تعداد"></td>'
+  +'<td><input data-k="p" data-i="'+i+'" inputmode="decimal" aria-label="قیمت واحد"></td>'
+  +'<td class="sum" id="s'+i+'"></td>'
+  +'<td class="x"><button data-del="'+i+'" aria-label="حذف ردیف">×</button></td>';
+  b.appendChild(tr);
+  ['n','w','q','p'].forEach(function(k){tr.querySelector('[data-k="'+k+'"]').value=r[k]});
+  tr.querySelector('[data-k="u"]').value=(r.u==null?'':r.u);
+ });
+ fillList();totals();
+}
+$('rows').addEventListener('input',function(e){
+ var t=e.target,i=t.getAttribute('data-i');if(i==null)return;
+ var k=t.getAttribute('data-k');rows[i][k]=t.value;
+ if(k==='n'||k==='u')autoPrice(+i,k);
+ totals();save();
+});
+$('rows').addEventListener('change',function(e){var t=e.target,i=t.getAttribute('data-i');if(i==null)return;var k=t.getAttribute('data-k');rows[i][k]=t.value;if(k==='n'||k==='u')autoPrice(+i,k);totals();save()});
+$('rows').addEventListener('click',function(e){
+ var d=e.target.getAttribute('data-del');if(d==null)return;
+ rows.splice(+d,1);if(!rows.length)rows.push(blank());draw();save();
+});
+$('rows').addEventListener('keydown',function(e){
+ if(e.key==='Enter'&&e.target.getAttribute('data-i')!=null){
+  var i=+e.target.getAttribute('data-i');
+  if(i===rows.length-1){rows.push(blank());draw();save()}
+  var nx=document.querySelector('[data-i="'+(i+1)+'"][data-k="'+e.target.getAttribute('data-k')+'"]');
+  if(nx)nx.focus();
+ }
+});
+$('add').onclick=function(){if(tab==='rate')return addR();rows.push(blank());draw();save();var l=document.querySelectorAll('[data-k="n"]');l[l.length-1].focus()};
+$('clear').onclick=function(){if(tab==='rate')return clearR();if(confirm('همه ردیف‌ها پاک شود؟')){rows=[blank(),blank(),blank()];S.disc='';S.paid='';$('disc').value='';$('paid').value='';draw();save()}};
+$('print').onclick=function(){window.print()};
+['who','dt','unit'].forEach(function(id){
+ $(id).addEventListener('input',function(){S[id]=$(id).value;if(id==='unit')totals();save()});
+});
+['disc','paid'].forEach(function(id){$(id).addEventListener('input',function(){S[id]=$(id).value;totals();save()})});
+$('wa').onclick=function(){
+ var u=S.unit||'',t='*سلطان - فروشگاه سید راشد*\n';
+ if(S.who)t+='مشتری: '+S.who+'\n';t+='تاریخ: '+S.dt+'\n\n';
+ rows.forEach(function(r){if(!(r.n||'').trim())return;var a=amt(r),un=(r.u!==''&&r.u!=null)?R.heads[+r.u]:'';t+='• '+r.n+(un?' ('+un+')':'')+' × '+(r.q||'۱')+(r.p?' @ '+r.p:'')+' = '+fa.format(a)+'\n'});
+ var tt=0;rows.forEach(function(r){tt+=amt(r)});var net=tt-num(S.disc),rest=net-num(S.paid);
+ t+='\nجمع: '+fa.format(tt)+' '+u;if(num(S.disc))t+='\nتخفیف: '+fa.format(num(S.disc))+' '+u;if(num(S.paid))t+='\nدریافتی: '+fa.format(num(S.paid))+' '+u;t+='\n*باقی‌مانده: '+fa.format(rest)+' '+u+'*';
+ window.open('https://wa.me/?text='+encodeURIComponent(t),'_blank');
+};
+$('mode').onchange=function(){S.mode=$('mode').value;totals();save()};
+var KS='nerkh-set-v1',ST={paper:'80',font:'n',brand:true,sig:false,theme:'auto',unit:''};
+try{ST=Object.assign(ST,JSON.parse(localStorage.getItem(KS)||'{}'))}catch(e){}
+function applySet(){
+ var fs={s:'8pt',n:'9.5pt',l:'11.5pt'}[ST.font]||'9.5pt',css='@media print{';
+ if(ST.paper==='80')css+='@page{size:80mm auto;margin:0}';
+ else{var w={a4:'210mm',a5:'148mm'}[ST.paper];css+='@page{size:'+ST.paper.toUpperCase()+';margin:10mm}html,body{width:auto!important}.wrap{width:auto!important;max-width:none!important;padding:0!important}table{width:100%!important}'}
+ css+='th,td,td input,th input,.meta input{font-size:'+fs+'!important}';
+ if(!ST.brand)css+='#brand{display:none!important}';
+ if(!ST.sig)css+='.sig{display:none!important}';
+ css+='}';$('pst').textContent=css;
+ if(ST.theme==='auto')document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme',ST.theme);
+ document.querySelectorAll('.sig').forEach(function(e){e.style.display=ST.sig?'':'none'});
+}
+function saveSet(){try{localStorage.setItem(KS,JSON.stringify(ST))}catch(e){}applySet()}
+function openSet(){
+ var m=document.createElement('div');m.id='setm';
+ function sel(id,opts,v){return '<select id="'+id+'">'+opts.map(function(o){return '<option value="'+o[0]+'"'+(o[0]==v?' selected':'')+'>'+o[1]+'</option>'}).join('')+'</select>'}
+ m.innerHTML='<div class="box"><h2>⚙️ تنظیمات</h2>'
+ +'<div class="r"><span>اندازه کاغذ چاپ</span>'+sel('s_paper',[['80','رسید ۸۰ میلی‌متر'],['a5','A5'],['a4','A4']],ST.paper)+'</div>'
+ +'<div class="r"><span>اندازه خط چاپ</span>'+sel('s_font',[['s','کوچک'],['n','معمولی'],['l','بزرگ']],ST.font)+'</div>'
+ +'<div class="r"><span>چاپ سرنویس (نام و آدرس فروشگاه)</span><input type="checkbox" id="s_brand"'+(ST.brand?' checked':'')+'></div>'
+ +'<div class="r"><span>چاپ جای امضا</span><input type="checkbox" id="s_sig"'+(ST.sig?' checked':'')+'></div>'
+ +'<div class="r"><span>ظاهر برنامه</span>'+sel('s_theme',[['auto','خودکار'],['light','روشن'],['dark','تیره']],ST.theme)+'</div>'
+ +'<div class="r"><span>ضریب‌های نرخنامه</span><button id="s_fac">بازگشت به پیش‌فرض</button></div>'
+ +'<div style="text-align:center;margin-top:12px"><button class="main" id="s_ok">بستن</button></div></div>';
+ document.body.appendChild(m);
+ function close(){m.remove()}
+ m.addEventListener('click',function(e){if(e.target===m)close()});
+ $('s_ok').onclick=close;
+ $('s_paper').onchange=function(){ST.paper=this.value;saveSet()};
+ $('s_font').onchange=function(){ST.font=this.value;saveSet()};
+ $('s_theme').onchange=function(){ST.theme=this.value;saveSet()};
+ $('s_brand').onchange=function(){ST.brand=this.checked;saveSet()};
+ $('s_sig').onchange=function(){ST.sig=this.checked;saveSet()};
+ $('s_fac').onclick=function(){R.f=[1,3.5,7,50];R.rows.forEach(function(_,i){if(num(R.rows[i].c[0])>0)autoFill(i)});drawR();saveR();alert('ضریب‌ها بازگشت: نیم سیر ۳٫۵ ، یک سیر ۷ ، بوجی ۵۰ کیلو')};
+}
+$('setb').onclick=openSet;applySet();
+loadAll();
+if(!rows.length)rows=[blank(),blank(),blank(),blank(),blank()];
+$('who').value=S.who;$('dt').value=S.dt;$('unit').value=S.unit;$('mode').value=S.mode;$('disc').value=S.disc;$('paid').value=S.paid;initR();
+draw();
+})();
+</script>
+</body>
+</html>
